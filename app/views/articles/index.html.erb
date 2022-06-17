@@ -1,0 +1,29 @@
+<% content_for :head do %>
+     <link rel="stylesheet" href="/assets/index.css"> 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<% end %>
+
+<%= render 'layouts/navbar' %>
+<div class="articles-container">
+  <div class="article-list">
+      <% @articles.each do |article| %>
+        <div class="article-card">
+          <div class="title"><%= article.title %></div>
+          <div class="history"><%= article.history%></div>
+          <div class="text"><%= article.text %></div>
+          <% if user_signed_in? %>
+          <div class="author">
+            <% if article.user.nil? %>
+              Anonymous
+              <% else %>
+              <%= article.user.first_name%>
+              <%= article.user.last_name%>
+            <% end %>
+          </div>
+          <% end %>
+          <div class="article-link"><%= link_to 'Show', article_path(article.id) %></div>
+        </div>
+        <br>
+      <% end %>
+  </div>
+</div>

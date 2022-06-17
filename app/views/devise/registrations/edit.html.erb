@@ -1,0 +1,54 @@
+<% content_for :head do %>
+     <link rel="stylesheet" href="/assets/edit-profile.css"> 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<% end %>
+
+<div class="flash-messages"> <%= render 'layouts/error_messages' %> </div> 
+<div class="body">
+  <div class="container" id="container">
+  <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-right">
+            <h1>Edit User Profile Form</h1>            
+            <p>This form is created using pure HTML and CSS. For social icons,
+        Fontawesome is used.</p>
+        <div class="home-button"><%= link_to 'Home', root_path %></div>
+          </div>        
+        </div>
+    </div>
+    <div class="form-container edit-user-container">    
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        
+        <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    
+        <div class="field">
+    
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", wrapper: false, label: false, placeholder: "Email" %>
+        </div>
+    
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+    
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "new-password", label: false, placeholder: "New Password" %>
+        </div>
+    
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", label: false, placeholder: "Confirm New Password" %>
+        </div>
+    
+        <div class="field">
+          <%= f.password_field :current_password, autocomplete: "current-password", label: false, placeholder: "Current Password" %>
+        </div>
+        <i>(we need your current password to confirm your changes)</i><br />
+    
+        <div class="actions">
+          <%= f.submit "Update" %>
+        </div>
+        <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%></p>
+      <% end %>      
+    
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<% content_for :head do %>
+     <link rel="stylesheet" href="/assets/navbar.css"> 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<% end %>
+<div class="navbar-container">  
+  <ul>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'About', pages_about_path %></li>
+    <li style="float:right"><%= link_to 'New Post', new_article_path %></li>
+    <% if user_signed_in? %>
+      <li style="float:right"><%= link_to current_user.first_name, edit_user_registration_path %></li>
+      <li style="float:right"><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}  %></li>
+      <% else %>
+      <li style="float:right"><%= link_to 'Login', new_user_session_path %></li>
+      <li style="float:right"><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <li><%= %></li>
+    <% end %>
+  </ul>
+</div>
