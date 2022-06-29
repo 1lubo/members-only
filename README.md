@@ -1,24 +1,13 @@
-# README
+# MEMBERS ONLY
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Created as part of the [Odin Project Curriculum](https://www.theodinproject.com/lessons/ruby-on-rails-members-only)
 
-Things you may want to cover:
+---
 
-* Ruby version
+This is a simple app where members can write anonymous posts. Only logged in members can see the author of the post.
 
-* System dependencies
+---
 
-* Configuration
+You can try it out [here](https://stormy-earth-44206.herokuapp.com/)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**HEADS UP:** Heroku server may need up to 30 sec to fire up a dyno. Be patient
